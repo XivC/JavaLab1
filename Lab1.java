@@ -2,9 +2,9 @@ import java.lang.Math;
 
 public class Lab1 {
 
-	public static boolean isInArray(int a, int[] m){ // функция проверяет наличие целого числа a в массиве m
+	public static boolean isInArray(int a, short[] m){ // функция проверяет наличие short-числа a в массиве m
 
-		for (int i: m){
+		for (short i: m){
 
 			if (a == i){
 				return true;
@@ -15,24 +15,24 @@ public class Lab1 {
 
 	public static void main(String args[]){
 
-		int[] d = {18, 16, 14, 12, 10, 8, 6, 4, 2};
-		float[] x = new float[20];
-		float left_side = -2; //Левая граница случайного значания в массиве d
-		float right_side = 4; //Правая граница случайного значания в массиве d
-		float[][] b = new float[9][20];
+		short[] d = {4, 6, 8, 10, 12, 14, 16, 18, 20};
+		double[] x = new double[20];
+		double left_side = -2; //Левая граница случайного значания в массиве d
+		double right_side = 9; //Правая граница случайного значания в массиве d
+		double[][] b = new double[9][20];
 		for (int i = 0; i < 20; i++){
-			x[i] = (float)Math.random() * (right_side - left_side) + left_side;
+			x[i] = Math.random() * (right_side - left_side) + left_side;
 			
 		}
 
 		for (int i = 0; i < 9; i++){
 			for (int j = 0; j < 9; j++){
 
-				if (d[i] == 10) b[i][j] = (float)Math.pow(Math.cos(Math.pow((3/4 - x[j])/(x[j]),x[j])), 1/3);
-				else if (isInArray(d[i], new int[] {4, 6, 8, 14} )) b[i][j] = (float)(0.25D * (Math.exp(Math.sin(x[j])) + 1));
-				else b[i][j] = (float)Math.pow(4 * Math.pow(Math.cos(x[j]/4 * Math.pow(Math.log(Math.abs(x[j])), Math.pow(2/x[j], x[j])/2) - 0.25D), Math.tan(Math.exp(x[j]))) ,3);
-				System.out.printf("%.4f", b[i][j]);
-				System.out.print(" ");
+				if (d[i] == 14) b[i][j] = (Math.asin(Math.PI/4 * Math.pow(Math.E, -Math.abs(x[j]))));
+				else if (isInArray(d[i], new short[] {6, 8, 10, 18} )) b[i][j] = (Math.tan(Math.PI * Math.pow(1/3 + Math.pow(x[j], 1/3),3)));
+				else b[i][j] = (Math.cos(Math.pow(Math.pow(Math.cos(x[j]),1/3), (Math.atan(Math.pow(Math.E, -Math.abs(x[j]))) - 1)/(Math.atan(Math.cos(x[j]))))));
+				System.out.printf("%.5f", b[i][j]);
+				System.out.print(" | ");
 			}
 			System.out.println("");
 
